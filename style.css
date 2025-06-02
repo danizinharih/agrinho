@@ -1,0 +1,224 @@
+/* ======================================= */
+/* 1. Estilo Básico da Página e Variáveis */
+/* ======================================= */
+
+/* Definindo variáveis CSS para cores - facilita a manutenção! */
+:root {
+    --cor-primaria: #4CAF50; /* Verde Agricultura (e.g., para botões, destaques) */
+    --cor-secundaria: #8BC34A; /* Verde mais claro (e.g., para hover, subtítulos) */
+    --cor-texto-principal: #333333; /* Cinza escuro para legibilidade */
+    --cor-texto-claro: #F5F5DC; /* Beje claro (para texto em fundos escuros) */
+    --cor-fundo-claro: #F8F8F8; /* Cinza muito claro para o fundo da página */
+    --cor-fundo-secao: #FFFFFF; /* Branco puro para seções de conteúdo */
+    --cor-borda: #DDDDDD; /* Cinza para bordas e divisões */
+    --fonte-principal: 'Arial', sans-serif; /* Fonte para o corpo do texto */
+    --fonte-titulo: 'Georgia', serif; /* Fonte para títulos, mais orgânica */
+}
+
+body {
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto-principal);
+    -webkit-font-smoothing: antialiased; /* Suaviza as fontes para melhor leitura */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Estilo para links gerais */
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transição suave na cor */
+}
+
+a:hover {
+    color: var(--cor-secundaria);
+}
+
+/* ======================================= */
+/* 2. Cabeçalho e Navegação */
+/* ======================================= */
+
+header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-family: var(--fonte-titulo);
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Para alinhar os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--cor-texto-claro);
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active { /* Adicione a classe 'active' ao link da página atual */
+    background-color: var(--cor-secundaria);
+}
+
+/* ======================================= */
+/* 3. Seções de Conteúdo */
+/* ======================================= */
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: var(--cor-fundo-secao);
+    padding: 40px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    color: var(--cor-primaria);
+    font-family: var(--fonte-titulo);
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo para parágrafos dentro de seções */
+section p {
+    margin-bottom: 1em;
+}
+
+/* Estilo para listas */
+ul.lista-personalizada {
+    list-style: none;
+    padding: 0;
+}
+
+ul.lista-personalizada li {
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--cor-borda);
+}
+
+ul.lista-personalizada li:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+/* ======================================= */
+/* 4. Botões */
+/* ======================================= */
+
+.btn {
+    display: inline-block; /* Permite definir largura/altura e espaçamento */
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Garante que não tenha sublinhado se for um link */
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--cor-secundaria);
+    transform: translateY(-2px); /* Efeito de "levantar" */
+}
+
+/* Botão de destaque (ex: "Saiba Mais") */
+.btn-destaque {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-principal);
+    border: 2px solid var(--cor-primaria);
+}
+
+.btn-destaque:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    border-color: var(--cor-secundaria);
+}
+
+
+/* ======================================= */
+/* 5. Rodapé */
+/* ======================================= */
+
+footer {
+    background-color: var(--cor-texto-principal); /* Um cinza escuro para o rodapé */
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ======================================= */
+/* 6. Responsividade Básica */
+/* ======================================= */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul {
+        flex-direction: column; /* Empilha os itens do menu em telas pequenas */
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .container {
+        padding: 0 10px; /* Reduz o padding lateral em telas pequenas */
+    }
+
+    section {
+        padding: 20px; /* Reduz o padding das seções */
+    }
+
+    .btn {
+        width: 100%; /* Botões ocupam a largura total em telas pequenas */
+        margin-bottom: 10px; /* Adiciona espaçamento entre botões empilhados */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    section h2 {
+        font-size: 1.8em;
+    }
+}
